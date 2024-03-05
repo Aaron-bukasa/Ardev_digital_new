@@ -1,0 +1,9 @@
+{
+  "name": "Ardev_digital_new",
+  "packageManager": "yarn@4.1.1",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
+}
