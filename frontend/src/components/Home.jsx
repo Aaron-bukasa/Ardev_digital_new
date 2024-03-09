@@ -15,16 +15,16 @@ export default function Home() {
 
 function HomeAbout() {
   return (
-    <div className="flex flex-col items-center py-5 lg:flex-row">
-      <div className="text-center order-2 lg:order-1 lg:w-[50%]">
+    <div className="flex flex-col items-center py-5 lg:flex-row lg:gap-x-5 lg:items-center lg:justify-between">
+      <div className="text-center max-w-[560px] order-2 lg:order-1 lg:w-[50%]">
         <h1 className="text-2xl text-center text-grayColor md:my-3 lg:text-4xl">AARON BUKASA</h1>
-        <h4 className="font-semibold text-center mb-4">Développeur web et mobile &amp; Gestionnaire financier</h4>
-        <p className="text-justify md:leading-loose">
+        <h4 className="font-semibold text-center mb-4 lg:text-xl">Développeur web et mobile &amp; Gestionnaire financier</h4>
+        <p className="text-justify md:leading-loose text-lg">
           Développeur web et mobile experimenté avec une passion pour les codes.
           Licencié en sciences économiques et de gestion, je dispose également
           d'une expérience professionnelle réussie dans le commerce.
         </p>
-        <p className="text-justify md:leading-loose">
+        <p className="text-justify md:leading-loose text-lg">
           Aujourd'hui je prends plaisir à coder, à passer des longues heures
           entrain de coder, à apprendre des nouvelles connaissances en
           développement web, donner vie à mes idées, coder me rend vivant.
@@ -32,24 +32,24 @@ function HomeAbout() {
         <div className="font-lora font-semibold flex flex-col items-center gap-y-5 my-6 sm:flex-row sm:gap-x-3 lg:flex-col">
           <a
             href="#"
-            className="text-redColor text-center w-full p-3 border-[1px] border-solid border-grayColor transitionBtn hover:bg-[#5252661c] sm:w-[50%] lg:w-full"
+            className="text-redColor text-center w-full p-3 border-[1px] border-solid border-grayColor transitionBtn hover:bg-[#5252661c] sm:w-[50%] lg:w-full lg:text-lg"
           >
             Télécharger CV PDF
           </a>
           <a
             href="https://aaron-bukasa.github.io/Aaron_bukasa-Curriculum_vitae/"
             target="_blank"
-            className="bg-grayColor text-white text-center w-full p-3 border-[1px] border-solid border-grayColor transitionBtn hover:opacity-90 sm:w-[50%] lg:w-full"
+            className="bg-grayColor text-white text-center w-full p-3 border-[1px] border-solid border-grayColor transitionBtn hover:opacity-90 sm:w-[50%] lg:w-full lg:text-lg"
           >
             Voir le CV
           </a>
         </div>
       </div>
-      <div className="my-5 order-1 lg:order-2 lg:w-[50%]">
+      <div className="my-5 order-1 lg:order-2 lg:w-[50%] lg:sticky lg:top-0">
         <img
           src={imgProfilFull}
           alt="Aaron bukasa"
-          className="hidden lg:block"
+          className="hidden lg:block lg:w-full lg:h-auto  lg:relative lg:-right-12"
         />
         <img
           src={imgProfilSmall}
@@ -63,13 +63,13 @@ function HomeAbout() {
 
 function HomeServices() {
   return (
-    <div className="py-5">
+    <div className="py-5 z-50">
       <h2>MES SERVICES</h2>
       <div className="flex flex-wrap justify-center gap-6 my-6">
         <div className="gestion__fin text-center border-[1px] border-solid border-grayColor rounded-2xl w-[400px] bg-yellowColor">
           <a
             href="./pages/services.html#gestion__fin"
-            className="block text-white p-12 md:px-6"
+            className="block text-white p-12 md:px-6 lg:px-12"
           >
             <h3 className="flex justify-center items-center gap-x-3 text-lg">
               <svg
@@ -98,7 +98,7 @@ function HomeServices() {
         <div className="dev__web text-center border-[1px] border-solid border-grayColor rounded-2xl w-[400px] bg-grayColor">
           <a
             href="./pages/services.html#dev_web"
-            className="block text-white p-12 md:px-6"
+            className="block text-white p-12 md:px-6 lg:px-12"
           >
             <h3 className="flex justify-center items-center gap-x-3 text-lg">
               <svg
@@ -128,7 +128,7 @@ function HomeServices() {
         <div className="dev__logiciel text-center border-[1px] border-solid border-grayColor rounded-2xl w-[400px] bg-redColor">
           <a
             href="./pages/services.html#dev__logiciel"
-            className="block text-white p-12 md:px-6"
+            className="block text-white p-12 md:px-6 lg:px-12"
           >
             <h3 className="flex justify-center items-center gap-x-3 text-lg">
               <svg
@@ -170,16 +170,20 @@ function HomeServices() {
 }
 
 function HomePorfolio() {
+
+  const dataSlice = datas.slice(0, 3);
+
   return (
-    <div className="flex flex-col items-center my-12">
+    <div className="flex flex-col items-center my-12 z-50">
       <h2 className="self-start">MES PORTFOLIO</h2>
       <ul className="flex items-center justify-center flex-wrap gap-6">
-        {datas.map((data) => (
+        
+        {dataSlice.map((data) => (
           <li key={data.id}>
             <a
               href={data.link}
               target="_blank"
-              class="relative beforePortfolio projet-0 block w-[400px] hover:before:h-full"
+              className="relative beforePortfolio projet-0 block w-[400px] hover:before:h-full"
             >
               <img src={data.image} alt={data.nom} className="w-full h-full" />
               <div className="relative text-center text-white flex flex-col items-center justify-center gap-[12px] bg-grayColor p-6 -mt-[7px] beforeProjet">
@@ -204,7 +208,7 @@ function HomePorfolio() {
 
 function HomeContact() {
   return (
-    <div className="pt-6 px-6 pb-12 bg-white">
+    <div className="pt-6 px-6 pb-12 bg-white z-50" >
       <h2 className="md:text-3xl md:mb-12">ME CONTACTER</h2>
       <div className="flex flex-col items-center gap-6 lg:flex-row">
         <div className="text-lg w-[80%] mx-auto">
