@@ -16,7 +16,6 @@
   --spaceBlock: 20px;
   --spaceTwo: 50px;
   --content: 85rem;
-  --bg: #ffffff80;
 }
 
 /* RESET */
@@ -64,13 +63,43 @@ svg {
   height: 24px;
 }
 
+/* .gridNav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(75px auto 75px);
+}
+.grid1 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+.grid2 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+.grid3 {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+}
+.grid4 {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+*/
+
 /* CSS custommer*/
-.bgHomeAbout {
+/* .bgHomeAbout {
   background-image: url('./assets/img/kadea.jpg');
+} */
+.linkTransition {
+  /* content: '';
+  display: inline-block;
+  width: 1%;
+  height: 5px;
+  background-color: transparent;
+  margin-top: 7px; */
+  transition: width .4s;
 }
-.transitionBtn {
-  transition: background-color .6s;
-}
+
 .beforePortfolio:before {
   content: '';
   display: block;
