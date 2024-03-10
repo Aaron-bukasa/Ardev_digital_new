@@ -3,6 +3,7 @@ import imgProfilFull from "../assets/img/profil_full.png";
 import datas from "../assets/portfolio.json";
 
 export default function Home() {
+
   return (
     <div className="px-5 bg-white md:px-12">
       <HomeAbout />
@@ -66,7 +67,7 @@ function HomeServices() {
     <div className="py-5 z-50">
       <h2>MES SERVICES</h2>
       <div className="flex flex-wrap justify-center gap-6 my-6">
-        <div className="gestion__fin text-center border-[1px] border-solid border-grayColor rounded-2xl w-[400px] bg-yellowColor">
+        <div className="gestion__fin text-center border-[1px] border-solid border-grayColor rounded-2xl w-[400px] bg-yellowColor animateServices">
           <a
             href="./pages/services.html#gestion__fin"
             className="block text-white p-12 md:px-6 lg:px-12"
@@ -95,7 +96,7 @@ function HomeServices() {
             </p>
           </a>
         </div>
-        <div className="dev__web text-center border-[1px] border-solid border-grayColor rounded-2xl w-[400px] bg-grayColor">
+        <div className="dev__web text-center border-[1px] border-solid border-grayColor rounded-2xl w-[400px] bg-grayColor animateServices">
           <a
             href="./pages/services.html#dev_web"
             className="block text-white p-12 md:px-6 lg:px-12"
@@ -125,7 +126,7 @@ function HomeServices() {
             </p>
           </a>
         </div>
-        <div className="dev__logiciel text-center border-[1px] border-solid border-grayColor rounded-2xl w-[400px] bg-redColor">
+        <div className="dev__logiciel text-center border-[1px] border-solid border-grayColor rounded-2xl w-[400px] bg-redColor animateServices">
           <a
             href="./pages/services.html#dev__logiciel"
             className="block text-white p-12 md:px-6 lg:px-12"
@@ -211,7 +212,7 @@ function HomeContact() {
     <div className="pt-6 px-6 pb-12 bg-white z-50" >
       <h2 className="md:text-3xl md:mb-12">ME CONTACTER</h2>
       <div className="flex flex-col items-center gap-6 lg:flex-row">
-        <div className="text-lg w-[80%] mx-auto">
+        <div className="text-lg w-[80%] mx-auto lg:text-xl">
           <h3 className="text-[24px] text-center text-grayColor mb-6">AARON BUKASA</h3>
           <a href="tel:+243816213580" className="flex items-center gap-x-4 my-2.5">
             <svg
