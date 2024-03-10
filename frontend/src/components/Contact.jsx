@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 export default function Contact() {
   return (
-    <>
-        <h1 class="header__title">ME CONTACTER</h1>
-      <main className="main">
-        <div className="contact__perso">
-          <h2>AARON BUKASA</h2>
-          <a href="tel:+243816213580">
+    <div className="min-h-screen">
+      <h1 className="text-2xl text-grayColor mt-12 pt-[5%] mx-auto">ME CONTACTER</h1>
+      <div className="flex flex-col justify-center items-center w-full md:flex-row md:gap-x-6">
+        <div className="flex flex-col items-center w-[60%]">
+          <h2 className="text-2xl mb-6">AARON BUKASA</h2>
+          <Link to="tel:+243816213580" className="my-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height={24}
@@ -15,8 +17,8 @@ export default function Contact() {
               <path d="M760-480q0-117-81.5-198.5T480-760v-80q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480h-80Zm-160 0q0-50-35-85t-85-35v-80q83 0 141.5 58.5T680-480h-80Zm198 360q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" />
             </svg>
             +243 816 21 35 80
-          </a>
-          <a href="mailto:aaronbukasa.mba@gmail.com">
+          </Link>
+          <Link to="mailto:aaronbukasa.mba@gmail.com" className="my-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height={24}
@@ -26,7 +28,7 @@ export default function Contact() {
               <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
             </svg>
             aaronbukasa.mba@gmail.com
-          </a>
+          </Link>
           <p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +79,7 @@ export default function Contact() {
               </svg>
             </a>
           </div>
-          <div className="map">
+          <div className="map hidden md:block md:w-100% md:mt-12 lg:gap-x-12">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31261.85220985977!2d27.49179131400638!3d-11.642470399999988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2scd!4v1703235557374!5m2!1sfr!2scd"
               height="auto"
@@ -85,19 +87,33 @@ export default function Contact() {
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              className="w-full min-h-4"
             />
           </div>
         </div>
-        <form method="post" className="contact__form">
-          <div className="username">
+        <form
+          method="post"
+          className="p-6 border-2 border-solid text-white bg-grayColor md:rounded-2xl w-[40%]"
+        >
+          <div className="username mb-4">
             <label htmlFor="username">Nom*</label>
-            <input type="text" id="username" name="nom" />
+            <input
+              type="text"
+              id="username"
+              name="nom"
+              className="border-2 border-solid border-grayColor text-black p-1 focus:outline-0"
+            />
           </div>
-          <div className="useremail">
+          <div className="useremail mb-4">
             <label htmlFor="useremail">Mail*</label>
-            <input type="email" id="useremail" name="mail" />
+            <input
+              type="email"
+              id="useremail"
+              name="email"
+              className="border-2 border-solid border-grayColor text-black p-1 focus:outline-0"
+            />
           </div>
-          <div className="usermessage">
+          <div className="usermessage mb-4">
             <label htmlFor="usermessage">Message</label>
             <textarea
               name="usermessage"
@@ -105,13 +121,15 @@ export default function Contact() {
               cols={30}
               rows={10}
               defaultValue={""}
+              className="h-24 border-2 border-solid border-grayColor text-black p-1 focus:outline-0"
             />
           </div>
-          <div className="validation-right">
+          <div className="flex gap-x-4 mb-4">
             <input
               type="checkbox"
               id="validation-right"
               name="validation-right"
+              className="w-16 md:w-8"
             />
             <label htmlFor="validation-right">
               Je consens par la présente à ce que ces données soient stockées et
@@ -120,9 +138,11 @@ export default function Contact() {
             </label>
           </div>
           <p>Veillez remplir tous les champs obligatoires.</p>
-          <button>Envoyer</button>
+          <button className="w-full text-white bg-white font-bold text-grayColor p-3 my-4">
+            Envoyer
+          </button>
         </form>
-      </main>
-    </>
+      </div>
+    </div>
   );
 }

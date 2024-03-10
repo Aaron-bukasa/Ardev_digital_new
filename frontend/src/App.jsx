@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation} from "react-router-dom";
 import Home from "./components/Home";
 import Services from "./components/Services";
 import Portfolio from "./components/Portfolio";
@@ -7,10 +7,17 @@ import "./App.css";
 import { useEffect, useState } from "react";
 
 export default function App() {
+
+  const location = useLocation();
+  const [currentPath, setCurrentPath] = useState(location.pathname);
+
+  useEffect(() => {
+    setCurrentPath(location.pathname);
+  }, [location.pathname]);
+
   return (
     <div id="container">
-      <Router>
-        <Navbar />
+        <Navbar currentPath={currentPath} />
         <div className="max-w-[1600px] mx-auto">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -20,12 +27,11 @@ export default function App() {
           </Routes>
         </div>
         <Footer />
-      </Router>
     </div>
   );
 }
 
-function Navbar() {
+function Navbar(props) {
   const [isClose, setIsClose] = useState(false);
   const [isLight, setIsLight] = useState(true);
 
@@ -38,31 +44,27 @@ function Navbar() {
   };
 
   return (
-    <div className={isClose ? "grid grid-cols-2 grid-rows-[75px auto 75px] bg-grayColor w-screen h-screen p-6" : "font-lora font-semibold text-lg tracking-wider flex justify-between items-center h-max p-5 bg-grayColor relative z-50 sticky top-0 md:px-12 xl:px-24"}
+    <div className={`${isClose && "grid grid-cols-2 auto-rows-max grid-rows-[75px auto 75px] text-xl bg-grayColor w-screen h-screen p-6"} tracking-wider flex justify-between items-center h-max p-5 bg-grayColor relative z-50 sticky top-0 md:px-12 xl:px-24 font-lora font-semibold text-lg`}
     >
       <div className={`${isClose && 'col-start-1 col-end-2 row-start-1 row-end-2'} navbar__logo text-xl`}>
         <Link
               to="/"
               className="text-yellowColor lg:after:content-[''] lg:after:inline-block after:w-[1%] lg:after:h-1 lg:after:bg-transparent lg:after:mt-2 lg:after:transition-all lg:after:duration-400"
             >
-              Aaron dev
+              ARDEV
             </Link>
       </div>
-      {/* <div
-        className={`${isClose
-          && "flex flex-col absolute top-0 right-0 bg-grayColor w-[75%] h-screen p-6 z-90 gap-y-20"} lg:flex lg:w-[80%] lg:justify-between`}
-        style={{ transition: "background-color .6s" }}
-      > */}
         <ul
           className={`${isClose
-            ? "col-start-1 col-end-2 row-start-2 row-end-3 flex flex-col gap-y-4 pl-12"
-            : "transition-all duration-600 delay-200 hidden"} lg:flex lg:justify-between lg:gap-x-6 lg:w-[80%] lg:max-w-[910px]`}
+            ? "col-start-1 col-end-2 row-start-2 row-end-3 flex flex-col gap-y-8 pl-12 pt-20 pb-12 transition-all duration-600 delay-200"
+            : "hidden"} lg:flex lg:justify-between lg:gap-x-6 lg:w-[65%] xl:max-w-[910px] xl:w-[70%]`}
         >
           <li>
             <Link
               to="/"
-              className="flex flex-col text-white w-max after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400 focus:after:w-full focus:after:bg-white"
+              className={`${props.currentPath === '/' && 'after:w-full after:bg-white'} flex flex-col text-white w-max hover:opacity-70 after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400`}
             >
+    
               ACCUEIL
             </Link>
           </li>
@@ -70,7 +72,7 @@ function Navbar() {
             <Link
               to="https://aaron-bukasa.github.io/Aaron_bukasa-Curriculum_vitae"
               target="_blank"
-              className="flex flex-col text-white w-max after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400 focus:after:w-full focus:after:bg-white"
+              className={`${props.currentPath === '/about' && 'after:w-full after:bg-white'} flex flex-col text-white w-max hover:opacity-70 after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400`}
             >
               ABOUT
             </Link>
@@ -78,7 +80,7 @@ function Navbar() {
           <li>
             <Link
               to="/services"
-              className="flex flex-col text-white w-max after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400 focus:after:w-full focus:after:bg-white"
+              className={`${props.currentPath === '/services' && 'after:w-full after:bg-white'} flex flex-col text-white w-max hover:opacity-70 after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400`}
             >
               SERVICES
             </Link>
@@ -86,7 +88,7 @@ function Navbar() {
           <li>
             <Link
               to="/portfolio"
-              className="flex flex-col text-white w-max after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400 focus:after:w-full focus:after:bg-white"
+              className={`${props.currentPath === '/portfolio' && 'after:w-full after:bg-white'} flex flex-col text-white w-max hover:opacity-70 after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400`}
             >
               PORTFOLIO
             </Link>
@@ -94,7 +96,7 @@ function Navbar() {
           <li>
             <Link
               to="/contact"
-              className="flex flex-col text-white w-max after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400 focus:after:w-full focus:after:bg-white"
+              className={`${props.currentPath === '/contact' && 'after:w-full after:bg-white'} flex flex-col text-white w-max hover:opacity-70 after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400`}
             >
               CONTACT
             </Link>
@@ -102,7 +104,7 @@ function Navbar() {
         </ul>
         <div
             onClick={handleClickTheme}
-            className={`${isClose ? 'col-start-1 col-end-2 row-start-3 row-end-4 h-max flex justify-between rounded-full w-max h-max gap-x-4 border-2 p-1 ml-12' : 'hidden'} lg:flex justify-between rounded-full w-max h-max gap-x-4 border-2 p-1`}
+            className={`${isClose ? 'col-start-1 col-end-2 row-start-3 row-end-4 h-max flex justify-between rounded-full w-max h-max gap-x-4 border-2 p-1 ml-12' : 'hidden'} lg:flex justify-between rounded-full w-max h-max gap-x-4 border-2 p-1 hover:cursor-pointer`}
           >
             <div
               className={
@@ -139,7 +141,7 @@ function Navbar() {
               </svg>
             </div>
           </div>
-        <div onClick={handleClick} className={` ${ isClose && "col-start-2 col-end-3 row-start-1 row-end-2 flex justify-end"} lg:order-last lg:hidden`}>
+        <div onClick={handleClick} className={` ${ isClose && "col-start-2 col-end-3 row-start-1 row-end-2 flex justify-end pr-4"} lg:order-last lg:hidden`}>
           <div className={isClose ? "hidden" : "block"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
