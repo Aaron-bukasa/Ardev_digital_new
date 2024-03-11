@@ -1,13 +1,18 @@
-extends layout
-
-block content
-  h1= title
-  form(action="post")
-    h2 Se connecter
-    div
-      label(for="") Email
-      input(type="email")
-    div
-      label(for="") Password
-      input(type="password")
-    button(type="submit") Se connecter
+doctype html
+html(lang='fr')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    h1= title
+    form(action="post")
+      h2 Se connecter
+      div
+        label(for="") Email
+        input(type="email")
+      div
+        label(for="") Password
+        input(type="password")
+      button(type="submit") Se connecter
