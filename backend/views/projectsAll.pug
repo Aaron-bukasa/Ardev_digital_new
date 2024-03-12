@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h2 Liste des projets realisées 
+  table
+    thead
+      tr(class="bg-gray-300")
+        th(class="border-2 border-gray-400") ID
+        th(class="border-2 border-gray-400") Date
+        th(class="border-2 border-gray-400") Nom
+        th(class="border-2 border-gray-400") Langage
+        th(class="border-2 border-gray-400") Technologie
+        th(class="border-2 border-gray-400") Image
+        th(class="border-2 border-gray-400") Description
+        th(class="border-2 border-gray-400") Link
+        th(class="border-2 border-gray-400") Tags
+        th(class="border-2 border-gray-400")
+    tbody
+      each item in jsonData
+        tr
+          td(class="border-2 border-gray-400")= item.id
+          td(class="border-2 border-gray-400")= item.date 
+          td(class="border-2 border-gray-400")= item.name
+          td(class="border-2 border-gray-400")= item.langage
+          td(class="border-2 border-gray-400")= item.technologie 
+          td(class="border-2 border-gray-400")= item.image
+          td(class="border-2 border-gray-400")= item.description
+          td(class="border-2 border-gray-400")= item.link 
+          td(class="border-2 border-gray-400")= item.tags
+          td(class="border-2 border-gray-400")
+            a(href=`http://localhost:3000/projects/${item.id}`) Modifier 
+            a(href=`http://localhost:3000/projects/${item.id}`) Supprimer
+

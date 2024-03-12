@@ -4,11 +4,13 @@ html(lang='fr')
     title= title
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.2.19/dist/tailwind.min.css", rel="stylesheet")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    h1= title 
-    div
-      div 
+    div(class="header")
+      h1()= Ardev 
+    div(class="flex flex-row justify-between gap-x-6 p-6")
+      div(class='w-nav')
         block sidebar 
           ul 
             li
@@ -21,5 +23,5 @@ html(lang='fr')
               a(href='/dashboard/experiences') Expériences
             li
               a(href='/dashboard/experiences/create') Ajouter une expérience
-      div
+      div(class='')
         block content
