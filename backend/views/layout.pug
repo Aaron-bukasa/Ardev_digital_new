@@ -1,7 +1,27 @@
 doctype html
-html
+html(lang='fr')
   head
     title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.2.19/dist/tailwind.min.css", rel="stylesheet")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    div(class="header")
+      h1()= Ardev 
+    div(class="flex flex-row justify-between gap-x-6 p-6")
+      div(class='w-nav')
+        block sidebar 
+          ul 
+            li
+              a(href='/dashboard') Home
+            li
+              a(href='/dashboard/projects') Tous les projects
+            li
+              a(href='/dashboard/projects/create') Ajouter un projet
+            li
+              a(href='/dashboard/experiences') Expériences
+            li
+              a(href='/dashboard/experiences/create') Ajouter une expérience
+      div(class='')
+        block content

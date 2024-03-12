@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const ctr_dashboard = require('../controller/indexController');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Ardev' });
-});
+router.get('/', ctr_dashboard.loginPage);
+router.get('/dashboard', ctr_dashboard.loginGet);
+router.post('/dashboard', ctr_dashboard.loginPost);
 
 module.exports = router;
