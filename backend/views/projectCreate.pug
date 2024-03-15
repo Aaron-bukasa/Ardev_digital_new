@@ -1,0 +1,30 @@
+extends layout
+
+block content  
+    form(action="/admin/login" method="post" class="bg-gray-700 p-6")
+      div
+        label(for="name") Nom
+        input(type="text" id="name")
+      div
+        label(for="langage") Langage 
+        input(type="text" id="langage")
+      div
+        label(for="technologie") Technologie
+        input(type="text" id="technologi")
+      div
+        label(for="image") Image
+        input(type="file" id="image")
+      div
+        label(for="description") Description
+        input(type="text" id="description")
+      div
+        label(for="link") Link
+        input(type="text" id="link")
+      div
+        label(for="tags") Tags
+        input(type="text" id="tags")
+      div 
+        button(type="submit" onclick ='handleCreateProject(event)' class="text-blue-700") Créer
+        button(type="submit" onclick ='handleCreateProject(event)' class="text-gray-400") Annuler
+
+      script(src='/javascripts/handlers.js')
