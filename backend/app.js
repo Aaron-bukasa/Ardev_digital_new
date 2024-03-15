@@ -1,12 +1,13 @@
 const createError = require('http-errors');
 const express = require('express');
-const postcssMiddleware = require('postcss-middleware');
+const session = require('express-session');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const cors = require('cors');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const adminRouter = require('./routes/admin');
+const dashboardRouter = require('./routes/dashboard');
 const projectsRouter = require('./routes/projects');
 
 const app = express();
@@ -15,14 +16,23 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(session({
+  secret: 'EDN.ICM.PSSR',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 1,
+  },
+}));
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/admin', usersRouter);
+app.use('/dashboard', dashboardRouter);
+app.use('/admin', adminRouter);
 app.use('/projects', projectsRouter);
 
 // catch 404 and forward to error handler

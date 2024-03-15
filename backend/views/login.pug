@@ -1,0 +1,21 @@
+doctype html
+html(lang='fr')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  body
+    h1= title
+    form(action="/admin/login" method="post")
+      h2(class='text-red-600') Se connecter
+      div
+        label(for="email") Email
+        input(type="email" id="email")
+      div
+        label(for="password") Password
+        input(type="password" id="password")
+      button(type="submit" onclick ='handleLogin(event)' class="text-blue-700") Se connecter
+
+      script(src='/javascripts/handlers.js')

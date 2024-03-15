@@ -7,6 +7,10 @@ exports.projectsAll = function(req, res, next) {
     res.render('projectsAll', { jsonData });
 };
 
+exports.projectsGet = async(req, res) => {
+    res.render('projectCreate')
+}
+
 exports.projectsAdd = async(req, res, next) => {
     try {
         const { name, image, description, link, langage, technologie, date, tags } = req.body;

@@ -8,20 +8,26 @@ html(lang='fr')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     div(class="header")
-      h1()= Ardev 
-    div(class="flex flex-row justify-between gap-x-6 p-6")
+      h1(class="text-[#d9a703] text-xl font-bold") Ardev 
+    div(class="flex flex-row gap-x-6 p-6")
       div(class='w-nav')
         block sidebar 
-          ul 
+          ul(class="flex flex-col gap-y-4 mb-6") 
             li
-              a(href='/admin/login') Home
+              a(href='dashboard' class="text-xl") Home
             li
-              a(href='/projects') Tous les projects
+              a(href='/projects' class="text-xl") Tous les projects
             li
-              a(href='/projects') Ajouter un projet
+              a(href='/projects/create' class="text-xl") Ajouter un projet
             li
-              a(href='/dashboard/experiences') Expériences
+              a(href='/dashboard/experiences' class="text-xl") Expériences
             li
-              a(href='/dashboard/experiences/create') Ajouter une expérience
-      div(class='')
+              a(href='/dashboard/experiences/create' class="text-xl") Ajouter une expérience
+          hr
+          div(class="py-6")
+            a(href="/dashboard/contacts" class="text-xl") Voir tous les contacts
+          hr
+          div(class="py-6")
+            a(href="/admin/userUpdate" class="text-xl") Modifier votre profil
+      div(class='w-full')
         block content
