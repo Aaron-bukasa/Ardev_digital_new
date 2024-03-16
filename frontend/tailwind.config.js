@@ -26,8 +26,8 @@ export default {
       content: {
         'linkAfter': 'url("./src/assets/img/expand_more.svg")',
       },
-      backgroundImage: {
-        // 'bgSVG001': "url('./src/assets/img/bgSVG001.svg')",
+      transitionDuration: {
+        '4000': '3000ms',
       }
     },
   },
