@@ -262,12 +262,12 @@ export default function Services() {
             </div>
           </div>
         </div>
-        <div>
-          <h2 className="my-4 lg:text-3xl">Gestion financière</h2>
+        <div className="pb-6 pt-12">
+          <h2 className="my-4 lg:mb-6 lg:text-3xl">Gestion financière</h2>
           <div className="flex flex-col gap-y-5 lg:flex-row lg:gap-x-8">
             <div className="w-[80%] m-auto lg:w-[50%]">
-              <img src={imgFinance001} alt="logo gestion financiere" className="lg:hidden" />
-              <Slider {...settings} className="hidden lg:block">
+              <img src={imgFinance002} alt="logo gestion financiere" className="" />
+              <Slider {...settings} className="hidden">
                 <div className="w-full h-full">
                 <img src={imgFinance001} alt="logo gestion financiere" className="w-full h-full" />
                 </div>
