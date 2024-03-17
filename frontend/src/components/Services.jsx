@@ -58,12 +58,31 @@ export default function Services() {
     config: { duration: 4000 },
   });
 
-  const settings = {
+  var settings = {
     dots: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   return (
@@ -264,22 +283,21 @@ export default function Services() {
         </div>
         <div className="pb-6 pt-12">
           <h2 className="my-4 lg:mb-6 lg:text-3xl">Gestion financière</h2>
-          <div className="flex flex-col gap-y-5 lg:flex-row lg:gap-x-8">
-            <div className="w-[80%] m-auto lg:w-[50%]">
-              <img src={imgFinance002} alt="logo gestion financiere" className="" />
-              <Slider {...settings} className="hidden">
-                <div className="w-full h-full">
-                <img src={imgFinance001} alt="logo gestion financiere" className="w-full h-full" />
+          <div className="flex flex-col gap-y-5">
+            <div className="w-full m-auto xl:px-12 slider-container">
+              <Slider {...settings} >
+                <div className="w-full h-[280px] px-1">
+                <img src={imgFinance001} alt="logo gestion financiere" className="w-full h-full object-cover" />
                 </div>
-                <div>
-                <img src={imgFinance002} alt="logo gestion financiere" />
+                <div className="h-[280px] px-1">
+                <img src={imgFinance002} alt="logo gestion financiere" className="w-full h-full object-cover" />
                 </div>
-                <div>
-                <img src={devLogiciel005} alt="logo gestion financiere" />
+                <div className="h-[280px] px-1">
+                <img src={devLogiciel005} alt="logo gestion financiere" className="w-full h-full object-cover" />
                 </div>
               </Slider>
             </div>
-            <div className="lg:w-[50%] text-justify lg:w-[620px] lg:order-first mx-auto xl:mx-0">
+            <div className="lg:w-[50%] text-justify lg:w-[620px] mx-auto xl:w-[750px]">
               <p
                 className="first-letter:font-bold first-letter:text-3xl first-letter:text-redColor
   first-letter:mr-1 first-letter:float-left"
@@ -311,9 +329,9 @@ export default function Services() {
                 fournir un soutien et une supervision continus après la mise en
                 œuvre de la solution.
               </p>
-              <div>
-                "J'ai aidé une entreprise à augmenter son chiffre d'affaire de
-                27% en diversifiant sa gamme des produits."
+              <div className="before:content-['❝'] before:text-5xl before:text-redColor after:content-['❞'] after:text-5xl after:text-redColor after:inline-block after:translate-y-2">
+                J'ai aidé une entreprise à augmenter son chiffre d'affaire de
+                27% en diversifiant sa gamme des produits.
               </div>
             </div>
           </div>

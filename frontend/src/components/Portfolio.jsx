@@ -2,7 +2,7 @@ import datas from "../assets/portfolio.json";
 
 export default function Portfolio() {
     return (
-        <div className="flex flex-col items-center my-12 z-50 min-h-screen px-6 md:px-12">
+        <div className="flex flex-col items-center my-12 z-50 px-6 md:px-12">
           <h2 className="self-start">MES PORTFOLIO</h2>
           <ul className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-rows-auto gap-5">
             
