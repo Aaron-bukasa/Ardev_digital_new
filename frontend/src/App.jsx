@@ -16,7 +16,7 @@ export default function App() {
   }, [location.pathname]);
 
   return (
-    <div id="container">
+    <div className="min-h-screen relative pb-24">
         <Navbar currentPath={currentPath} />
         <div className="max-w-[1600px] mx-auto">
           <Routes>
@@ -172,7 +172,7 @@ function Navbar(props) {
 
 function Footer() {
   return (
-    <div className="footer-principal">
+    <div className="footer-principal absolute bottom-0 w-full">
       <div className="text-center text-white bg-grayColor p-6">
         Copyright 2023 Aaron bukasa
       </div>
