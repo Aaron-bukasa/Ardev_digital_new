@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation} from "react-router-dom";
 import Home from "./components/Home";
 import Services from "./components/Services";
+import About from "./components/About";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import "./App.css";
@@ -21,6 +22,7 @@ export default function App() {
         <div className="max-w-[1600px] mx-auto">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/contact" element={<Contact />} />
@@ -38,6 +40,10 @@ function Navbar(props) {
   const handleClick = () => {
     isClose ? setIsClose(false) : setIsClose(true);
   };
+
+  const handleClickNav = () => {
+    isClose && setIsClose(false)
+  }
 
   const handleClickTheme = () => {
     isLight ? setIsLight(false) : setIsLight(true);
@@ -59,7 +65,7 @@ function Navbar(props) {
             ? "col-start-1 col-end-2 row-start-2 row-end-3 flex flex-col gap-y-8 pl-12 pt-20 pb-12 transition-all duration-600 delay-200"
             : "hidden"} lg:flex lg:justify-between lg:gap-x-6 lg:w-[65%] xl:max-w-[910px] xl:w-[70%]`}
         >
-          <li>
+          <li onClick={handleClickNav}>
             <Link
               to="/"
               className={`${props.currentPath === '/' && 'after:w-full after:bg-white'} flex flex-col text-white w-max hover:opacity-70 after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400`}
@@ -68,16 +74,15 @@ function Navbar(props) {
               ACCUEIL
             </Link>
           </li>
-          <li>
+          <li onClick={handleClickNav}>
             <Link
-              to="https://aaron-bukasa.github.io/Aaron_bukasa-Curriculum_vitae"
-              target="_blank"
+              to="/about"
               className={`${props.currentPath === '/about' && 'after:w-full after:bg-white'} flex flex-col text-white w-max hover:opacity-70 after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400`}
             >
               ABOUT
             </Link>
           </li>
-          <li>
+          <li onClick={handleClickNav}>
             <Link
               to="/services"
               className={`${props.currentPath === '/services' && 'after:w-full after:bg-white'} flex flex-col text-white w-max hover:opacity-70 after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400`}
@@ -85,7 +90,7 @@ function Navbar(props) {
               SERVICES
             </Link>
           </li>
-          <li>
+          <li onClick={handleClickNav}>
             <Link
               to="/portfolio"
               className={`${props.currentPath === '/portfolio' && 'after:w-full after:bg-white'} flex flex-col text-white w-max hover:opacity-70 after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400`}
@@ -93,7 +98,7 @@ function Navbar(props) {
               PORTFOLIO
             </Link>
           </li>
-          <li>
+          <li onClick={handleClickNav}>
             <Link
               to="/contact"
               className={`${props.currentPath === '/contact' && 'after:w-full after:bg-white'} flex flex-col text-white w-max hover:opacity-70 after:content-[''] after:inline-block after:w-[1%] after:h-1 after:bg-transparent after:mt-2 after:transition-all after:duration-400`}

@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 export default function Contact() {
   return (
-    <div>
+    <div className="px-5 bg-white md:px-12">
       <h1 className="text-2xl text-grayColor mt-6 pt-[5%] mx-auto">ME CONTACTER</h1>
-      <div className="flex flex-col justify-center items-center w-full md:flex-row md:items-end md:gap-x-6">
-        <div className="flex flex-col w-[60%]">
-          <h2 className="text-2xl mb-6 self-center">AARON BUKASA</h2>
-          <Link to="tel:+243816213580" className="my-2 flex gap-x-2">
+      <div className="flex flex-col gap-y-12 justify-center items-center w-full lg:flex-row lg:items-end lg:gap-x-6">
+        <div className="flex flex-col w-[60%] text-lg lg:text-xl">
+          <h2 className="text-2xl my-6 self-center">AARON BUKASA</h2>
+          <Link to="tel:+243816213580" className="my-2 flex gap-x-2 inline-block w-max lg:pl-12">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height={24}
@@ -18,7 +18,7 @@ export default function Contact() {
             </svg>
             +243 816 21 35 80
           </Link>
-          <Link to="mailto:aaronbukasa.mba@gmail.com" className="my-2 flex gap-x-2">
+          <Link to="mailto:aaronbukasa.mba@gmail.com" className="my-2 flex gap-x-2 w-max lg:pl-12">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height={24}
@@ -29,7 +29,7 @@ export default function Contact() {
             </svg>
             aaronbukasa.mba@gmail.com
           </Link>
-          <p className="flex gap-x-2">
+          <p className="flex gap-x-2 lg:pl-12">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height={24}
@@ -40,7 +40,7 @@ export default function Contact() {
             </svg>
             Lubunbashi / RDC
           </p>
-          <div className="links-sociaux flex gap-x-2">
+          <div className="links-sociaux flex gap-x-4 mt-6 lg:pl-12">
             <a
               href="https://www.linkedin.com/in/aaron-bukasa-bb84b42a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
@@ -79,7 +79,7 @@ export default function Contact() {
               </svg>
             </a>
           </div>
-          <div className="map hidden md:block md:w-100% md:mt-12 xl:h-[450px] bg-red-500 lg:gap-x-12">
+          <div className="map hidden lg:block lg:w-100% lg:mt-12 h-[450px] lg:gap-x-12">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31261.85220985977!2d27.49179131400638!3d-11.642470399999988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2scd!4v1703235557374!5m2!1sfr!2scd"
               height="auto"
@@ -93,7 +93,7 @@ export default function Contact() {
         </div>
         <form
           method="post"
-          className="p-6 border-2 border-solid text-white bg-grayColor md:rounded-2xl w-[40%]"
+          className="p-6 border-2 border-solid text-white bg-grayColor md:w-[80%] md:rounded-2xl lg:min-w-[450px] lg:w-[40%]"
         >
           <div className="username mb-4">
             <label htmlFor="username">Nom*</label>
