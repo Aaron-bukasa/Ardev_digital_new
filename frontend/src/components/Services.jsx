@@ -4,8 +4,9 @@ import imgFinance001 from "../assets/img/imgFinance001.jpg";
 import imgFinance002 from "../assets/img/imgFinance002.jpg";
 import devLogiciel005 from "../assets/img/devLogiciel005.png";
 import imgWeb002 from "../assets/img/web002.jpg";
-import imgWeb003 from "../assets/img/web003.jpg";
-import bgSVG002 from "../assets/img/bgSVG002.png";
+import devLogiciel001 from "../assets/img/devLogiciel001.jpg";
+import devLogiciel002 from "../assets/img/devLogiciel002.jpg";
+import devLogiciel003 from "../assets/img/devLogiciel003.jpg";
 import { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import Slider from "react-slick";
@@ -72,47 +73,90 @@ export default function Services() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 640,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % 5);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="p-5 leading-6 md:text-lg">
       <h1 className="text-2xl text-grayColor pt-4 text-4xl">MES SERVICES</h1>
       <div className="main mx-5">
-        <div className="relative flex flex-col gap-5 py-4 lg:flex-row lg:items-center xl:h-[70vh]">
-          <div className="w-[80%] mx-auto lg:order-last lg:w-[50%] lg:max-h-[550px] lg:grid lg:grid-cols-12 lg:grid-rows-12">
-            <img
-              src={imgWeb002}
-              alt="logo site web"
-              className="hidden lg:block lg:w-full lg:h-full lg:col-start-4 lg:col-end-12 lg:row-start-1 lg:row-end-6"
-            />
-            <img
-              src={imgWeb001}
-              alt="logo site web"
-              className="lg:w-full lg:h-full lg:col-start-1 lg:col-end-8 lg:row-start-4 lg:row-end-10"
-            />
-            <img
-              src={imgWeb003}
-              alt="logo site web"
-              className="hidden lg:block lg:w-full lg:h-full lg:col-start-6 lg:col-end-13 lg:row-start-8 lg:row-end-13"
-            />
-            <img
-              src={bgSVG002}
-              alt=""
-              className="hidden -z-50 lg:block absolute lg:-right-[20%] lg:bottom-0"
-            />
+        <div className="relative flex flex-col gap-5 py-4 lg:flex-row lg:items-center lg:justify-between xl:h-[70vh] ">
+          <div className="image-container relative lg:w-[60%] xl:w-[40%]">
+            <div>
+              <img src={imgWeb002} alt="Image 1" className="invisible" />
+            </div>
+            <div className="absolute top-0">
+              <img
+                src={imgWeb001}
+                alt="Image 1"
+                style={{
+                  opacity: activeIndex === 0 ? 1 : 0,
+                  transition: "opacity 1s",
+                }}
+              />
+            </div>
+            <div className="absolute top-0">
+              <img
+                src={imgWeb002}
+                alt="Image 2"
+                style={{
+                  opacity: activeIndex === 1 ? 1 : 0,
+                  transition: "opacity 1s",
+                }}
+              />
+            </div>
+            <div className="absolute top-0">
+              <img
+                src={devLogiciel001}
+                alt="Image 3"
+                style={{
+                  opacity: activeIndex === 2 ? 1 : 0,
+                  transition: "opacity 1s",
+                }}
+              />
+            </div>
+            <div className="absolute top-0">
+              <img
+                src={devLogiciel002}
+                alt="Image 4"
+                style={{
+                  opacity: activeIndex === 3 ? 1 : 0,
+                  transition: "opacity 1s",
+                }}
+              />
+            </div>
+            <div className="absolute top-0">
+              <img
+                src={devLogiciel003}
+                alt="Image 4"
+                style={{
+                  opacity: activeIndex === 4 ? 1 : 0,
+                  transition: "opacity 1s",
+                }}
+              />
+            </div>
           </div>
-          <div className="lg:w-[50%] text-justify lg:w-[620px] ">
+          <div className="lg:w-[50%] text-justify lg:w-[620px] lg:order-first ">
             <h2 className="my-4 lg:text-3xl">Developpement Web</h2>
             <p
               className="first-letter:font-bold first-letter:text-3xl first-letter:text-redColor
@@ -285,15 +329,27 @@ export default function Services() {
           <h2 className="my-4 lg:mb-6 lg:text-3xl">Gestion financière</h2>
           <div className="flex flex-col gap-y-5">
             <div className="w-full m-auto xl:px-12 slider-container">
-              <Slider {...settings} >
+              <Slider {...settings}>
                 <div className="w-full h-[280px] px-1">
-                <img src={imgFinance001} alt="logo gestion financiere" className="w-full h-full object-cover" />
+                  <img
+                    src={imgFinance001}
+                    alt="logo gestion financiere"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="h-[280px] px-1">
-                <img src={imgFinance002} alt="logo gestion financiere" className="w-full h-full object-cover" />
+                  <img
+                    src={imgFinance002}
+                    alt="logo gestion financiere"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="h-[280px] px-1">
-                <img src={devLogiciel005} alt="logo gestion financiere" className="w-full h-full object-cover" />
+                  <img
+                    src={devLogiciel005}
+                    alt="logo gestion financiere"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </Slider>
             </div>
